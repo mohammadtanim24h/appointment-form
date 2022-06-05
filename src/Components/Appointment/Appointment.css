@@ -1,0 +1,10 @@
+.custom-form {
+    width: 25%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+    .custom-form {
+        width: 90%;
+    }
+}
