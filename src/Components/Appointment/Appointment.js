@@ -9,7 +9,28 @@ const Appointment = () => {
         const email = e.target.email.value;
         const phone = e.target.phone.value;
         const date = e.target.date.value;
-        
+
+        const appointmentInfo = {
+            name,
+            email,
+            phone,
+            date,
+        };
+
+        // posting to server
+        fetch("http://localhost:5000/appointment", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(appointmentInfo),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    alert("Appointment submitted successfully!");
+                }
+            });
     };
     return (
         <div>
